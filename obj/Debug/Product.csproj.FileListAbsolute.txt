@@ -81,3 +81,13 @@ E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\obj\Debug\
 E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\obj\Debug\Product.csproj.CopyComplete
 E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\obj\Debug\Product.dll
 E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\obj\Debug\Product.pdb
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\System.Net.Http.Formatting.dll
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\System.Web.Http.dll
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\System.Web.Http.WebHost.dll
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\System.Net.Http.Formatting.xml
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\System.Web.Http.xml
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\System.Web.Http.WebHost.xml
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\AutoMapper.dll
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\System.ValueTuple.dll
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\AutoMapper.xml
+E:\Books & Notes\10th Semester\Advanced Programming With .Net\Product\bin\System.ValueTuple.xml

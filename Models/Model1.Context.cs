@@ -26,5 +26,6 @@ namespace Product.Models
         }
     
         public virtual DbSet<product> products { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
     }
 }

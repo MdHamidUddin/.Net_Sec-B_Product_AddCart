@@ -9,8 +9,35 @@
     <Property Name="Price" Type="Double" />
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Orders" Relationship="ProductModel.FK_Order_products" FromRole="product" ToRole="Order" />
   </EntityType>
   <EntityContainer Name="ProductEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="Orders" EntityType="ProductModel.Order" />
+    <AssociationSet Name="FK_Order_products" Association="ProductModel.FK_Order_products">
+      <End Role="product" EntitySet="products" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="O_ID" />
+    </Key>
+    <Property Name="O_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="P_ID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="product" Relationship="ProductModel.FK_Order_products" FromRole="Order" ToRole="product" />
+  </EntityType>
+  <Association Name="FK_Order_products">
+    <End Type="ProductModel.product" Role="product" Multiplicity="0..1" />
+    <End Type="ProductModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="P_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
