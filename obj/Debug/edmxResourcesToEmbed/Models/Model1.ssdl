@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ProductModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="O_ID" />
+    </Key>
+    <Property Name="O_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="P_ID" Type="int" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
   <EntityType Name="products">
     <Key>
       <PropertyRef Name="ID" />
@@ -10,7 +18,24 @@
     <Property Name="Description" Type="varchar" MaxLength="50" />
     <Property Name="Quantity" Type="int" />
   </EntityType>
+  <Association Name="FK_Order_products">
+    <End Role="products" Type="Self.products" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="P_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ProductModelStoreContainer">
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Order_products" Association="Self.FK_Order_products">
+      <End Role="products" EntitySet="products" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

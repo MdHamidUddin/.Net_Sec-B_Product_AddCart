@@ -14,10 +14,19 @@ namespace Product.Models
     
     public partial class product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public product()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
         public int ID { get; set; }
         public string Name { get; set; }
         public Nullable<double> Price { get; set; }
         public string Description { get; set; }
         public Nullable<int> Quantity { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
